@@ -27,11 +27,11 @@ Thank you for your interest in contributing! This guide will help you understand
 
 ```bash
 # Fork the repository on GitHub, then:
-git clone https://github.com/YOUR_USERNAME/bsky-affirmative-bot.git
-cd bsky-affirmative-bot
+git clone https://github.com/j4ckxyz/frost-bot.git
+cd frost-bot
 
 # Add upstream remote
-git remote add upstream https://github.com/ORIGINAL_OWNER/bsky-affirmative-bot.git
+git remote add upstream https://github.com/ORIGINAL_OWNER/frost-bot.git
 ```
 
 ---
@@ -614,8 +614,8 @@ node -e "require('./src/db/index.js').default"
 
 ## ❓ Questions?
 
-- **Issues**: [GitHub Issues](https://github.com/YOUR_USERNAME/bsky-affirmative-bot/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/YOUR_USERNAME/bsky-affirmative-bot/discussions)
+- **Issues**: [GitHub Issues](https://github.com/j4ckxyz/frost-bot/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/j4ckxyz/frost-bot/discussions)
 
 ---
 

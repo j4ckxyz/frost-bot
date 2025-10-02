@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.0.0] - 2025-10-02
 
-This is a major enhanced fork of [suibari/bsky-affirmative-bot](https://github.com/suibari/bsky-affirmative-bot) with significant improvements for English-first usage, performance, AI integration, and user experience.
+This is a major enhanced fork of [suibari/frost-bot](https://github.com/suibari/frost-bot) with significant improvements for English-first usage, performance, AI integration, and user experience.
 
 ### 🎯 Major Changes
 
@@ -186,7 +186,7 @@ If you're upgrading from the original bot:
 
 ### 🙏 Credits
 
-- **Original Bot**: [suibari/bsky-affirmative-bot](https://github.com/suibari/bsky-affirmative-bot) by [suibari](https://github.com/suibari)
+- **Original Bot**: [suibari/frost-bot](https://github.com/suibari/frost-bot) by [suibari](https://github.com/suibari)
 - **Enhanced Fork**: Community contributions for English-first usage, performance optimization, and modern AI integration
 
 ---
@@ -204,13 +204,13 @@ The original Japanese-focused Bluesky affirmative bot by suibari with:
 - Template-based responses
 - Subscription system support
 
-See the [original repository](https://github.com/suibari/bsky-affirmative-bot) for full details.
+See the [original repository](https://github.com/suibari/frost-bot) for full details.
 
 ---
 
 ## Links
 
-- **Original Repository**: https://github.com/suibari/bsky-affirmative-bot
-- **Enhanced Fork**: https://github.com/YOUR_USERNAME/bsky-affirmative-bot
-- **Issues**: https://github.com/YOUR_USERNAME/bsky-affirmative-bot/issues
+- **Original Repository**: https://github.com/suibari/frost-bot
+- **Enhanced Fork**: https://github.com/j4ckxyz/frost-bot
+- **Issues**: https://github.com/j4ckxyz/frost-bot/issues
 - **Original Bot on Bluesky**: [@suibari-bot.bsky.social](https://bsky.app/profile/suibari-bot.bsky.social)

@@ -113,7 +113,7 @@ export class OpenRouterClient {
         headers: {
           'Authorization': `Bearer ${this.apiKey}`,
           'Content-Type': 'application/json',
-          'HTTP-Referer': process.env.OPENROUTER_REFERER || 'https://github.com/your-repo/bsky-affirmative-bot',
+          'HTTP-Referer': process.env.OPENROUTER_REFERER || 'https://github.com/j4ckxyz/frost-bot',
           'X-Title': process.env.OPENROUTER_TITLE || 'Bluesky Affirmative Bot'
         },
         body: JSON.stringify(requestBody)

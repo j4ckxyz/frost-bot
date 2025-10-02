@@ -1,5 +1,5 @@
 {
-  "name": "bsky-affirmative-bot-enhanced",
+  "name": "frost-bot-enhanced",
   "version": "2.0.0",
   "description": "Enhanced English-first Bluesky bot with ultra-fast responses, deep user profiling, OpenRouter integration, and custom AT Protocol PDS support",
   "type": "module",
@@ -25,7 +25,7 @@
   ],
   "author": {
     "name": "Enhanced by Community",
-    "url": "https://github.com/YOUR_USERNAME/bsky-affirmative-bot"
+    "url": "https://github.com/j4ckxyz/frost-bot"
   },
   "contributors": [
     {
@@ -36,12 +36,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YOUR_USERNAME/bsky-affirmative-bot.git"
+    "url": "git+https://github.com/j4ckxyz/frost-bot.git"
   },
   "bugs": {
-    "url": "https://github.com/YOUR_USERNAME/bsky-affirmative-bot/issues"
+    "url": "https://github.com/j4ckxyz/frost-bot/issues"
   },
-  "homepage": "https://github.com/YOUR_USERNAME/bsky-affirmative-bot#readme",
+  "homepage": "https://github.com/j4ckxyz/frost-bot#readme",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.0.0"

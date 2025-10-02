@@ -39,793 +39,148 @@ An intelligent, personalized Bluesky bot that provides ultra-fast, contextual af
 - [Architecture](#architecture)
 
 - [Troubleshooting](#troubleshooting)---
+## 🌟 Bluesky Affirmative Bot (Enhanced Fork)
 
-- [Contributing](#contributing)
+A fast, English‑first Bluesky bot that sends short, positive, personalized replies to people who follow it. Forked from the original Japanese project and simplified.
 
-- [License](#license)## 概要
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)](https://www.typescriptlang.org/)
 
-
-
----## 📋 Table of Contents
-
-
-
-## About This Projectこのリポジトリには、全肯定botたんのコードと設定ファイルが含まれています。
-
-
-
-This is an enhanced fork of [suibari's bsky-affirmative-bot](https://github.com/suibari/bsky-affirmative-bot) with significant improvements:- [What is this?](#-what-is-this)本botは以下の機能を持ちます。
-
-
-
-- **English-first design** with maintained Japanese support- [Key Features](#-key-features)
-
-- **Ultra-fast response times** (sub-50ms for cached replies)
-
-- **Deep user profiling** with personality analysis- [Quick Start](#-quick-start)1. **AI生成リプライ**: 生成AI (Google Gemini) を使用し、フォロワーの投稿内容（文章、画像）に応じてリプライします
-
-- **OpenRouter integration** for access to Claude, GPT-4, and 200+ AI models
-
-- **Custom AT Protocol PDS support** for decentralized hosting- [Configuration](#-configuration)2. **定型文リプライ**: 日本語極性辞書を使用し、フォロワーの投稿内容（文章）に感情分析を行い、結果に従って定型文リストからリプライします
-
-- **Intelligent caching** and continuous learning systems
-
-- [Usage](#-usage)3. **占い機能**: ユーザの応答で、占いを行います
-
-The bot follows users back on Bluesky, learns their personality and preferences through interactions, and responds with personalized, encouraging messages tailored to their mood and context.
-
-- [Architecture](#-architecture)4. **リプ頻度調整**: ユーザの応答で、botがリプライする頻度の調整が0~100%で行えます
+**日本語版 README → [README_ja.md](./README_ja.md)** • **Contributing → [CONTRIBUTING.md](./CONTRIBUTING.md)**
 
 ---
 
-- [Troubleshooting](#-troubleshooting)5. **会話機能**: ユーザの応答で、botと連続した会話を行えます
-
-## Key Features
-
-- [Contributing](#-contributing)6. **分析機能**: ユーザの応答で、ユーザの性格分析を行えます
-
-### Performance and Speed
-
-- **Sub-50ms response times** using three-tier caching system- [Credits](#-credits)7. **応援機能**: ユーザの応答で、宣伝を行えます
-
-- **Exact match cache** for instant responses (under 5ms)
-
-- **Template responses** for common patterns (under 20ms)8. **DJ機能**: ユーザの応答で、botがあなたのために選曲
-
-- **AI-generated contextual replies** with personalization (under 50ms)
-
-- **Smart sentiment analysis** without AI overhead for faster processing---9. **日記機能**: ユーザの応答で、botが日記をつけてくれます
-
-
-
-### User Understanding
-
-- **Automatic personality profiling** based on Big Five personality traits
-
-- **Personal context storage** including hobbies, goals, and relationships## 🎯 What is this?また、本botは運営維持費をまかなうために有志によるサブスク制を導入しています。
-
-- **Mood pattern tracking** over time to understand emotional trends
-
-- **Relationship levels** that evolve from stranger (0) to close friend (3)
-
-- **Interaction style adaptation** customized per user
-
-This is an **enhanced fork** of [suibari's bsky-affirmative-bot](https://github.com/suibari/bsky-affirmative-bot) with major improvements:以下に通常フォロワー、サブスクフォロワーの使用できる機能をまとめます。サブスクの詳細は[Pixiv Fanbox](https://suibari.fanbox.cc/posts/10174305)をご覧ください。
-
-### AI Integration
-
-- **OpenRouter support** providing access to Claude 3.5 Sonnet, GPT-4, and 200+ models
-
-- **Google Gemini integration** for embeddings and fallback generation
-
-- **Intelligent service routing** selecting appropriate models based on task complexity- 🌍 **English-first** with multi-language support| サブスク可否       | 定型文リプライ | AI生成リプライ | 占い | リプ頻度調整 | 会話機能 | 分析機能 | 応援機能 | DJ機能 | 日記機能 | 
-
-- **Cost optimization** through automatic model selection
-
-- **Graceful fallback chains** ensuring continuous operation- ⚡ **Ultra-fast responses** (<50ms for cached replies)| ------------------ | -------------- | -------------- | ---- | ------------ | -------- | -------- | -------- | ------ | -------- | 
-
-
-
-### Network Flexibility- 🧠 **Deep user profiling** (personality, interests, mood tracking)| 通常フォロワー     | ✓             |                | ✓   | ✓           |          | ✓       |          |        |          | 
-
-- **Custom AT Protocol PDS** connectivity for any AT Protocol server
-
-- **Automatic PDS discovery** from user handles- 🔌 **OpenRouter integration** (Claude, GPT-4, 200+ models)| サブスクフォロワー |                | ✓             | ✓   | ✓           | ✓       | ✓       | ✓       | ✓     | ✓       | 
-
-- **Multi-PDS compatibility** for decentralized network support
-
-- **Robust fallback system** for handling connection issues- 🌐 **Custom AT Protocol PDS** support
-
-
-
-### Interaction Modes- 💾 **Intelligent caching** and learning system---
-
-- **Fortune telling mode** with daily readings and biorhythm analysis
-
-- **Conversation mode** for extended chat sessions with memory
-
-- **Analysis mode** providing personality and mood analysis
-
-- **DJ mode** offering music recommendations based on preferencesThe bot follows users back, learns about them through their posts, and responds with personalized, encouraging messages tailored to their personality and current mood.## 使用方法
-
-- **Diary mode** generating automated daily summaries
-
-- **Cheer mode** amplifying user content through reposts1. Blueskyで本botをフォローしてください
-
-
-
-------2. 一定時間後、本botがフォローバックし、以降、あなたのポストに反応するようになります
-
-
-
-## Installation
-
-
-
-### Prerequisites## ✨ Key Features本botのフォロー解除、またはユーザブロックにより、以降、本botはリプライしなくなります。
-
-
-
-Before installation, ensure you have:
-
-
-
-- **Node.js 18 or higher** - JavaScript runtime environment ([Download](https://nodejs.org/))### 🚀 Ultra-Fast Response Systembotフォロー後に、botがあなたのポストにどう反応するかの処理フローは以下です。
-
-- **npm** - Package manager (included with Node.js)
-
-- **Bluesky account** - Social media account for bot operation- **Sub-50ms response times** using 3-tier caching:
-
-- **App password** - Dedicated password for bot access ([Create](https://bsky.app/settings/app-passwords))
-
-- **Google Gemini API key** - For AI generation and embeddings ([Obtain](https://makersuite.google.com/app/apikey))  1. Exact match cache (< 5ms)![bot処理フロー](https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:uixgxpiqf4i63p6rgpu7ytmx/bafkreihxgiteyk25cpv3e7lkdsggntpb3jj6ybha4btq5ykf2fzdyq7j6u@jpeg)
-
-- **OpenRouter API key** (optional) - For enhanced AI model access ([Sign up](https://openrouter.ai/))
-
-  2. Template responses (< 20ms)
-
-### Automated Installation
-
-  3. AI-generated contextual replies (< 50ms)### 占い機能
-
-The automated setup script handles dependency installation, configuration file creation, and environment setup:
-
-- Smart sentiment analysis without AI overhead以下の手順を実施することで、本botが占い結果をリプライします。
-
+## 1. What It Does (TL;DR)
+Follow the bot → it follows back → it watches your posts → it replies (cached template, or AI if needed) with an affirming, mood‑aware, low‑latency message. Extra trigger words unlock: fortune, analysis, diary, DJ/music, conversation, cheer/repost.
+
+---
+
+## 2. Core Features
+| Area | Feature |
+|------|---------|
+| Speed | Multi‑tier cache (<5ms exact / <20ms template / <50ms AI) |
+| AI | OpenRouter (Claude/GPT-4/etc) + Gemini fallback |
+| Personalization | Lightweight profiling (sentiment + simple preference memory) |
+| Modes | fortune / analyze / conversation / diary / DJ / cheer |
+| Deployment | Works with default Bluesky PDS or custom PDS |
+| Safety | Local SQLite, minimal stored data, easy opt‑out (unfollow/block) |
+
+---
+
+## 3. Quick Start (90 Seconds)
 ```bash
-
-# Clone the repository to your local machine- Performance monitoring and optimization占いは1度行うと数時間行えません。
-
-git clone https://github.com/YOUR_USERNAME/bsky-affirmative-bot.git
-
-
-
-# Navigate to the project directory
-
-cd bsky-affirmative-bot### 🧠 Deep User Understanding1. 本botに対しメンションまたはリプライで **"占い"** とポストする
-
-
-
-# Make the setup script executable (Unix/Linux/macOS)- **Automatic personality profiling** using Big Five traits2. 本botがあなたに占い結果をリプライします
-
-chmod +x setup.sh
-
-- **Personal context storage** (hobbies, goals, relationships, timezone)
-
-# Run the automated setup script
-
-./setup.sh- **Mood pattern tracking** over time### リプライ頻度調整
-
-```
-
-- **Relationship levels** that evolve (0-3: stranger → close friend)以下の手順を実施することで、そのフォロワーに対してのリプライ頻度を変更します。
-
-**What the setup script does:**
-
-1. Verifies Node.js and npm installation- **Interaction style adaptation** per user
-
-2. Installs all required npm dependencies
-
-3. Creates configuration file (.env) from template1. "使用方法"に従い、本botからフォローされた状態となる
-
-4. Initializes SQLite database with required schema
-
-5. Builds TypeScript source code to JavaScript### 🤖 Advanced AI Integration2. 本botに対しメンションまたはリプライで **"freqN"(Nは0~100の整数)** とポストする
-
-6. Creates convenience scripts (start.sh, dev.sh, test.sh)
-
-7. Validates configuration and reports any issues- **OpenRouter support**: Claude 3.5 Sonnet, GPT-4, and 200+ models3. 本botがあなたに設定完了をリプライします
-
-
-
-### Manual Installation- **Google Gemini**: Fallback and embeddings
-
-
-
-For manual control over the installation process:- **Intelligent routing**: Fast models for quick replies, creative models for complex tasks### 会話機能
-
-
-
-```bash- **Cost optimization**: Automatic model selection based on task type以下の手順を実施することで、そのフォロワーに対して会話を開始します。
-
-# Install all project dependencies from package.json
-
+git clone https://github.com/j4ckxyz/frost-bot
+cd frost-bot
+cp .env.example .env   # (if example exists – otherwise create .env manually)
 npm install
-
-
-
-# Create environment configuration file from template### 🌐 Multi-Network Support1. "使用方法"に従い、本botからフォローされた状態となる
-
-cp .env.example .env
-
-- **Custom AT Protocol PDS**: Connect to any AT Protocol server2. 自分がスレッド主であるスレッドで、botにリプライする
-
-# Edit configuration file with your credentials
-
-nano .env  # or use your preferred text editor- **Auto-discovery**: Automatically finds PDS from user handles3. 本botがあなたにいいねします
-
-
-
-# Initialize database schema and tables- **Fallback system**: Gracefully handles PDS connection issues4. 本botがあなたにリプライします
-
-node -e "require('./src/db').default"
-
-5. 4のリプライに対してあなたがリプライした場合、会話が継続します。3に戻ります
-
-# Compile TypeScript source code to JavaScript
-
-npm run build### 💬 Smart Interaction Modes
-
-
-
-# Start the bot in production mode- **Fortune telling**: Daily fortune readings with biorhythm analysis会話機能を説明した画像を以下に掲載します。
-
-npm start
-
-```- **Conversation mode**: Extended chat sessions with memory
-
-
-
-**Manual installation steps explained:**- **Analysis mode**: Personality and mood analysis![会話機能説明画像](https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:qcwhrvzx6wmi5hz775uyi6fh/bafkreib5x75mtoy7md2eegafwgl6ug4vr23bwy7wyorqrmlwxbyhppzim4@jpeg)
-
-- `npm install` - Downloads and installs all dependencies listed in package.json
-
-- `cp .env.example .env` - Creates your configuration file from the template- **DJ mode**: Music recommendations based on user preferences
-
-- `nano .env` - Opens text editor to add your API keys and credentials
-
-- `node -e "require('./src/db').default"` - Runs database initialization script- **Diary mode**: Automated diary generation from user posts### 分析機能
-
-- `npm run build` - Compiles TypeScript (.ts) files to JavaScript (.js) in dist/ folder
-
-- `npm start` - Launches the bot using the compiled JavaScript files- **Cheer mode**: Amplify user content through reposts以下の手順を実施することで、本botが性格分析結果をリプライします。
-
-
-
----分析機能は1度行うと数日間行えません。
-
-
-
-## Configuration### 📊 Analytics & Learning
-
-
-
-### Required Settings- Background learning from all interactions1. 本botに対しメンションまたはリプライで **"分析して"** とポストする
-
-
-
-Edit your `.env` file with these mandatory configuration values:- Response effectiveness tracking2. 本botがあなたに分析結果を画像付きリプライします
-
-
-
-```bash- User preference detection
-
-# Bluesky Account Credentials
-
-BSKY_IDENTIFIER="your-handle.bsky.social"- Continuous improvement without intervention### 応援機能
-
-# Your Bluesky username or handle
-
-# Example: mybot.bsky.social以下の手順を実施することで、本botがあなたのポストをリポストして応援します。
-
-
-
-BSKY_PASSWORD="your-app-password"---応援機能は1度行うと数時間行えません。
-
-# App password from Bluesky settings (not your main password)
-
-# Generate at: https://bsky.app/settings/app-passwords
-
-
-
-# Google Gemini API Configuration## 🚀 Quick Start1. "使用方法"に従い、本botからフォローされた状態となる
-
-GEMINI_API_KEY="your-gemini-api-key"
-
-# API key for Google Gemini AI service2. **"#全肯定応援団"** とハッシュタグをつけて、応援してほしい内容・画像をポストする（botへのリプライ不要）
-
-# Used for text generation and embeddings
-
-# Free tier: 60 requests per minute### Prerequisites3. 本botが2をリポストし、フォロワー全体向けに宣伝ポストします
-
+nano .env              # add required keys below
+npm run build
+npm start              # or: ./start.sh (if provided)
 ```
+You must create a Bluesky App Password: https://bsky.app/settings/app-passwords
 
-
-
-### Optional Settings
-
-Before you begin, ensure you have:### DJ機能
-
-Enhance functionality with these optional configuration values:
-
-以下の手順を実施することで、本botがあなたの気分にあった曲を選曲します。
-
-```bash
-
-# OpenRouter Integration (Recommended)- **Node.js 18 or higher** ([Download](https://nodejs.org/))DJ機能は1度行うと数分行えません。
-
-OPENROUTER_API_KEY="your-openrouter-key"
-
-# API key for OpenRouter service- **npm** (comes with Node.js)
-
-# Provides access to Claude, GPT-4, and 200+ models
-
-# Obtain from: https://openrouter.ai/keys- **Bluesky account** with app password ([Create one](https://bsky.app/settings/app-passwords))1. 本botに対しメンションまたはリプライで **"DJお願い"** とポストする
-
-
-
-OPENROUTER_MODEL="anthropic/claude-3.5-sonnet"- **Google Gemini API key** ([Get free key](https://makersuite.google.com/app/apikey))2. 本botがあなたに曲を紹介します
-
-# Default AI model for general responses
-
-# Options: anthropic/claude-3.5-sonnet, openai/gpt-4-turbo, etc.- **(Optional) OpenRouter API key** ([Sign up](https://openrouter.ai/))
-
-
-
-AI_SERVICE_PREFERENCE="openrouter"### 日記機能
-
-# Primary AI service selection
-
-# Options: "openrouter" or "gemini"### Super Quick Setup (Recommended)以下の手順を実施することで、本botがあなたの1日のポストから日記をつけます。
-
-# Determines which service is attempted first
-
-設定後、毎晩1度リプライしてくれます。
-
-# Custom AT Protocol PDS
-
-CUSTOM_PDS_URL="https://your-pds.example.com"```bash
-
-# URL of custom Personal Data Server
-
-# Leave empty to use default Bluesky PDS# 1. Clone this repository1. "使用方法"に従い、本botからフォローされた状態となる
-
-# Enables hosting on alternative AT Protocol servers
-
-git clone https://github.com/YOUR_USERNAME/bsky-affirmative-bot.git2. 本botに対しメンションまたはリプライで **"日記つけて"** とポストする
-
-# Bot Behavior Configuration
-
-BOT_DID="did:plc:your-bot-did"cd bsky-affirmative-bot3. 本botが毎晩あなたに日記を送ります
-
-# Decentralized Identifier for your bot
-
-# Find at: https://plc.directory/your-handle.bsky.social4. 本bot対しメンションまたはリプライで **"日記やめて"** とポストすることで、日記機能を解除できます
-
-
-
-DEVELOPMENT_MODE="false"# 2. Run the automated setup script
-
-# Enable development features and verbose logging
-
-# Set to "true" for testing, "false" for productionchmod +x setup.sh---
-
-
-
-# Performance Tuning./setup.sh
-
-CACHE_TTL="3600"
-
-# Cache time-to-live in seconds## プライバシーポリシー
-
-# Controls how long responses are cached before regeneration
-
-# 3. Follow the prompts to configure your bot
-
-MAX_RESPONSE_LENGTH="280"
-
-# Maximum character length for bot replies# The script will ask for:### 情報の収集
-
-# Keeps responses within Bluesky's limits
-
-```# - Bluesky username and app password
-
-
-
-### Obtaining API Keys# - Google Gemini API key本botは、次の情報を収集し処理します：
-
-
-
-#### Bluesky App Password# - OpenRouter API key (optional)
-
-1. Navigate to [Bluesky App Passwords Settings](https://bsky.app/settings/app-passwords)
-
-2. Click "Add App Password" button# - Bot personality settings- **フォロワーの投稿内容**: 投稿内容はリプライを生成する目的でのみ利用され、保存や二次利用はいっさい行いません
-
-3. Enter a descriptive name (e.g., "Affirmative Bot")
-
-4. Copy the generated password immediately (cannot be viewed again)- **ユーザーメタデータ**: ユーザー名やプロフィール情報など、応答を個別化するための最低限のデータにアクセスしますが、これらのデータはいっさい保存されません
-
-5. Paste into `.env` file as `BSKY_PASSWORD`
-
-# 4. Start your bot!
-
-#### Google Gemini API Key
-
-1. Visit [Google AI Studio](https://makersuite.google.com/app/apikey)./start.sh### 情報の利用目的
-
-2. Click "Create API Key" button
-
-3. Select "Create API key in new project" or choose existing project```
-
-4. Copy the generated API key
-
-5. Paste into `.env` file as `GEMINI_API_KEY`本botが収集した情報は、リプライ生成以外の目的では、第三者と共有されません。**ただしAI生成リプライ時には、Google Gemini API利用のため、Google LLCとのデータ通信を行います。**
-
-6. Note: Free tier allows 60 requests per minute
-
-That's it! Your bot is now running and will start responding to followers.
-
-#### OpenRouter API Key (Optional)
-
-1. Create account at [OpenRouter](https://openrouter.ai/)### 年齢制限
-
-2. Navigate to [API Keys page](https://openrouter.ai/keys)
-
-3. Click "Create Key" button### Manual Setup本botのAIを用いた機能はGoogle Gemini APIの利用規約に準拠しており、18歳以上のユーザのみを対象としています。
-
-4. Copy the generated API key
-
-5. Add initial credits (minimum $5 recommended for testing)
-
-6. Paste into `.env` file as `OPENROUTER_API_KEY`
-
-If you prefer manual setup:**18歳未満の方は、AIを用いた機能の利用をお控えください。**
+Verify it runs: watch logs (if present) `tail -f logs/bot.log` then from another account follow the bot and post something.
 
 ---
 
-
-
-## Usage
-
-```bash定型文リプライはAIを使わない機能なので、ご利用いただけます。
-
-### Starting the Bot
-
-# 1. Install dependencies
-
-```bash
-
-# Production mode with optimized performancenpm install### 地域制限
-
-./start.sh
-
-本botのAIを用いた機能はGoogle Gemini APIの利用規約に準拠しており、次の地域ではご利用いただけません：
-
-# Development mode with auto-restart on file changes
-
-./dev.sh# 2. Create configuration file
-
-
-
-# Test all services and verify configurationcp .env.example .env- イギリス（UK）
-
-./test-services.sh
-
-```- スイス（Switzerland）
-
-
-
-**Command explanations:**# 3. Edit .env with your credentials- 欧州連合加盟国（EU Member States）
-
-- `./start.sh` - Launches bot in production mode using compiled JavaScript
-
-- `./dev.sh` - Starts bot with automatic restart when source files change (useful for development)nano .env  # or use your favorite editor
-
-- `./test-services.sh` - Validates API connections and configuration without starting the bot
-
-**これらの地域にお住まいの方は、AIを用いた機能の利用をお控えください。**
-
-### Testing Bot Functionality
-
-# 4. Initialize the database
-
-1. **Follow your bot** on Bluesky using your test account
-
-2. **Wait for follow-back** (typically occurs within 1-2 minutes)node -e "require('./src/db').default"定型文リプライはAIを使わない機能なので、ご利用いただけます。
-
-3. **Post a message** from your test account
-
-4. **Observe the response** from your bot
-
-
-
-**Test different modes:**# 5. Build TypeScript### プライバシーポリシーの変更
-
-- Post `fortune` to receive your daily fortune reading
-
-- Post `analyze me` for personality analysisnpm run buildプライバシーポリシーは適宜更新されることがあります。重大な変更があった場合は、本リポジトリにて通知します。
-
-- Post `conversation` to start an extended chat session
-
-- Post `DJ` for personalized music recommendations
-
-
-
-### Monitoring Bot Operation# 6. Start the bot### 問い合わせ
-
-
-
-```bashnpm start本ボットまたはプライバシーポリシーに関するお問い合わせは、次の連絡先までお願いします：
-
-# View real-time log output
-
-tail -f logs/bot.log```[すいばり (suibari.com)](https://bsky.app/profile/suibari-com)
-
-
-
-# Check total number of followers
-
-sqlite3 data/bot.db "SELECT COUNT(*) FROM followers;"
-
-------
-
-# Monitor response performance
-
-grep "Response time" logs/bot.log
-
-
-
-# View recent errors## ⚙️ Configuration## ライセンス
-
-grep "ERROR" logs/bot.log | tail -20
-
-```このプロジェクトはOSSであり、MITライセンスの下で提供されています。詳細は [LICENSE](./LICENSE) ファイルをご覧ください。
-
-
-
-**Monitoring explanations:**### Required Environment Variables
-
-- `tail -f logs/bot.log` - Displays newest log entries in real-time as they're written
-
-- `sqlite3` commands - Query the SQLite database for statistics and user data### 引用文献
-
-- `grep` commands - Filter log file for specific patterns or error messages
-
-Edit your `.env` file with these **required** settings:本botは日本語感情分析に東北大学 乾・岡崎研究室の [日本語評価極性辞書](https://www.cl.ecei.tohoku.ac.jp/Open_Resources-Japanese_Sentiment_Polarity_Dictionary.html) を使用しています。
-
-### Stopping the Bot
-
-本botは英語感情分析に東京工業大学 奥村・高村研究室の [単語感情極性対応表](http://www.lr.pi.titech.ac.jp/~takamura/pndic_en.html) を使用しています。
-
-```bash
-
-# Find the running bot process```bash
-
-ps aux | grep "node.*index"
-
-# Bluesky Account (Required)---
-
-# Stop gracefully using process ID
-
-kill <PID>BSKY_IDENTIFIER="your-handle.bsky.social"  # Your Bluesky username
-
-
-
-# Force stop if graceful shutdown failsBSKY_PASSWORD="your-app-password"           # App password (not your main password!)## 免責事項
-
-pkill -f "node.*index"
-
-```本botは、すいばり自身の技術スキルアップおよびAT-Protocolの理解のために、個人で開発・運用・管理されています。
-
-
-
-**Shutdown explanations:**# Google Gemini API (Required for embeddings)そのため、企業が実施しているような手厚いサポートやアップデートは実施が難しいです。
-
-- `ps aux | grep` - Lists all processes and filters for the bot process
-
-- `kill <PID>` - Sends termination signal allowing graceful shutdownGEMINI_API_KEY="your-gemini-api-key"
-
-- `pkill -f` - Forcefully terminates process if graceful shutdown fails
-
-```本botは正常な稼働に向けて可能な限りの改善・改修の努力をしますが、前提として自己責任でのご利用をお願いいたします。
+## 4. Minimum Environment Variables
+Put these in `.env` (names must match code; some original names kept for compatibility):
+```
+# Bluesky credentials
+BSKY_IDENTIFIER=your-handle.bsky.social
+BSKY_APP_PASSWORD=app-password-here   # NOTE: code uses BSKY_APP_PASSWORD (not BSKY_PASSWORD)
+BSKY_DID=did:plc:xxxxxxxxxxxxxxxxxxxx # (optional; auto derivation if omitted in some flows)
+
+# AI (pick at least one)
+GEMINI_API_KEY=xxxxx                  # Required for Gemini fallback & embeddings
+OPENROUTER_API_KEY=xxxxx              # Recommended for Claude/GPT‑4
+AI_SERVICE_PREFERENCE=openrouter      # openrouter | gemini | mixed
+
+# Optional tuning
+OPENROUTER_MODEL=anthropic/claude-3.5-sonnet
+CUSTOM_PDS_URL=https://your-pds.example.com   # optional
+NODE_ENV=production
+```
+If you only want free usage: supply only `GEMINI_API_KEY` and set `AI_SERVICE_PREFERENCE=gemini`.
 
 ---
 
-また本botを利用したことによる過失や損害につきまして、開発者は一切の責任を負いません。ご了承ください。
+## 5. Common User Triggers
+| Trigger (post/reply contains) | Action |
+|-------------------------------|--------|
+| fortune                      | Daily fortune / biorhythm style reply |
+| analyze me / 分析して          | Simple personality snapshot |
+| conversation                 | Starts light conversation thread |
+| DJ / DJお願い                 | Music suggestion |
+| diaryつけて / diaryやめて      | Opt‑in / opt‑out daily summary |
+| freqN (freq0..freq100)       | Adjust reply frequency |
+| #全肯定応援団                | Cheer / repost mode |
 
-## Architecture
-
-### Optional Environment Variables
-
-### Project Structure
+Normal posts (no command) get an affirmative or supportive reply depending on sentiment & relationship score.
 
 ---
 
+## 6. Updating / Running
+| Task | Command |
+|------|---------|
+| Install deps | `npm install` |
+| Build | `npm run build` |
+| Start (prod) | `npm start` or `./start.sh` |
+| Dev (watch) | `./dev.sh` (if script exists) |
+| Service test | `./test-services.sh` (if provided) |
+
+Logs (if directory exists): `tail -f logs/bot.log`
+
+---
+
+## 7. Troubleshooting (Fast)
+| Symptom | Try |
+|---------|-----|
+| Bot never replies | Confirm follow-back; check `BSKY_IDENTIFIER` / App Password; view logs |
+| Slow replies (>1s) | Add OpenRouter key; ensure cache not being cleared repeatedly |
+| 429 / rate limit | Reduce commands; enable OpenRouter or mixed mode |
+| DB errors | Remove `data/bot.db` (will lose history) then re-run start/build |
+| Crash on start | Node >=18? Missing env vars? Run `npm install` again |
+
+---
+
+## 8. Data & Privacy (Brief)
+Stores minimal interaction + lightweight profile info locally (SQLite). No resale / external sharing beyond AI API calls. Unfollow or block = no further replies; remove local DB to purge.
+
+---
+
+## 9. Contributing
+PRs welcome. See `CONTRIBUTING.md` for code style & structure.
+
+---
+
+## 10. License & Credit
+MIT License (see `LICENSE`).
+Original project by [suibari](https://github.com/suibari). This fork: English-first simplification + multi‑model AI & caching improvements.
+
+---
+
+## 11. Quick Env Key Reference (Extended)
+Additional optional keys discovered in code (set only if you need them):
 ```
-
-bsky-affirmative-bot/Enhance your bot with these **optional** settings:
-
-├── src/                      # Source code directory
-
-│   ├── index.ts              # Main application entry point```bash
-
-│   ├── config/               # Configuration management# OpenRouter Integration (Recommended for better AI responses)
-
-│   │   └── index.ts          # Bot settings and system promptsOPENROUTER_API_KEY="your-openrouter-key"
-
-│   ├── bsky/                 # Bluesky/AT Protocol integrationOPENROUTER_MODEL="anthropic/claude-3.5-sonnet"  # Default model
-
-│   │   ├── agent.ts          # AT Protocol agent with custom PDS supportAI_SERVICE_PREFERENCE="openrouter"              # Use OpenRouter first
-
-│   │   ├── jetstream.ts      # Real-time event stream listening
-
-│   │   └── post.ts           # Post creation and reply functionality# Custom AT Protocol PDS
-
-│   ├── ai/                   # AI service management layerCUSTOM_PDS_URL="https://your-pds.example.com"   # For custom PDS hosting
-
-│   │   └── serviceManager.ts # Routes requests between OpenRouter and Gemini
-
-│   ├── openrouter/           # OpenRouter API client# Bot Behavior
-
-│   │   └── client.ts         # Wrapper for 200+ AI modelsBOT_DID="did:plc:your-bot-did"                  # Your bot's DID
-
-│   ├── gemini/               # Google Gemini integrationDEVELOPMENT_MODE="false"                         # Set to "true" for testing
-
-│   │   └── index.ts          # Text generation and embeddings
-
-│   ├── util/                 # Core utility modules# Performance Tuning
-
-│   │   ├── userProfiling.ts  # User personality analysis and storageCACHE_TTL="3600"                                 # Cache lifetime in seconds
-
-│   │   └── responseOptimizer.ts # Multi-tier response caching systemMAX_RESPONSE_LENGTH="280"                        # Maximum reply length
-
-│   ├── db/                   # Database management```
-
-│   │   └── index.ts          # SQLite schema and operations
-
-│   ├── modes/                # Bot interaction modes### Getting API Keys
-
-│   │   ├── fortune.ts        # Fortune telling functionality
-
-│   │   ├── conversation.ts   # Extended conversation handling#### Bluesky App Password
-
-│   │   └── analyze.ts        # Personality analysis1. Go to [Bluesky Settings](https://bsky.app/settings/app-passwords)
-
-│   └── json/                 # Response template collections2. Click "Add App Password"
-
-│       ├── affirmativeword_enhanced_positive_en.json3. Give it a name (e.g., "Affirmative Bot")
-
-│       ├── affirmativeword_enhanced_normal_en.json4. Copy the generated password (you won't see it again!)
-
-│       └── affirmativeword_enhanced_supportive_en.json
-
-├── setup.sh                  # Automated installation script#### Google Gemini API Key
-
-├── start.sh                  # Production startup script1. Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
-
-├── dev.sh                    # Development startup script2. Click "Create API Key"
-
-└── test-services.sh          # Service validation script3. Copy your key (free tier: 60 requests/minute)
-
+OPENROUTER_FAST_MODEL=anthropic/claude-3-haiku
+OPENROUTER_CREATIVE_MODEL=openai/gpt-4o
+OPENROUTER_FALLBACK_TO_GEMINI=true
+USE_OPENROUTER_FOR_CONVERSATION=true
+USE_OPENROUTER_FOR_GENERATION=true
+CUSTOM_PDS_URL=...
+NEGAPOSI_URL=...                 # External sentiment service (optional)
+SQLITE_DB_FILE=./data/bot.db
+YOUTUBE_API_KEY=...              # If using YouTube features
+SPREADSHEET_ID=...               # If using gsheet integration
+URL_JETSTREAM=wss://...          # Custom Jetstream endpoint
+NODE_PORT=3000                   # If running internal server
+NGROK_FOWARDING_URL=...          # Voice / speech module
 ```
+Most users only need the minimal set in Section 4.
 
-#### OpenRouter API Key (Optional but Recommended)
+---
 
-### System Workflow1. Sign up at [OpenRouter](https://openrouter.ai/)
-
-2. Go to [Keys page](https://openrouter.ai/keys)
-
-1. **Event Monitoring** - Jetstream subscribes to Bluesky firehose for new posts from followers3. Create a new key
-
-2. **User Analysis** - Each interaction updates user personality profile in database4. Add credits ($5 recommended for testing)
-
-3. **Sentiment Detection** - Fast local sentiment analysis determines appropriate response type
-
-4. **Response Generation** - Three-tier system selects response method:---
-
-   - Checks cache for exact match (under 5ms)
-
-   - Attempts template matching (under 20ms)## 📖 Usage
-
-   - Generates AI response with personalization (under 50ms)
-
-5. **Continuous Learning** - Background process updates user profiles and caching strategies### Starting Your Bot
-
-
-
-### AI Service Routing```bash
-
-# Production mode
-
-```./start.sh
-
-User Post → Sentiment Analysis → Response Selection
-
-                                        ↓# Development mode (with auto-restart)
-
-                    ┌───────────────────┴────────────────────┐./dev.sh
-
-                    ↓                                        ↓
-
-        OpenRouter (Primary)                    Gemini (Fallback)# Test services (verify configuration)
-
-                    ↓                                        ↓./test-services.sh
-
-        Claude 3.5 Sonnet                      Gemini 1.5 Pro```
-
-        GPT-4 Turbo                            Text Generation
-
-        200+ other models                      Embeddings### Testing Your Bot
-
-                    ↓                                        ↓
-
-                    └───────────────────┬────────────────────┘1. **Follow your bot** on Bluesky
-
-                                        ↓2. **Wait for follow-back** (usually within 1-2 minutes)
-
-                            Personalized Response3. **Post something** and watch for a reply!
-
-                                        ↓4. **Try commands**:
-
-                              Post to Bluesky   - Post "fortune" to get your daily fortune
-
-```   - Post "analyze me" for personality analysis
-
-   - Post "conversation" to start a chat
-
----   - Post "DJ" for music recommendations
-
-
-
-## Troubleshooting### Monitoring Your Bot
-
-
-
-### Bot Fails to Start```bash
-
-# View live logs
-
-**Problem:** Error occurs when executing `./start.sh`tail -f logs/bot.log
-
-
-
-**Solutions:**# Check database stats
-
-sqlite3 data/bot.db "SELECT COUNT(*) FROM followers;"
-
-```bash
-
-# Verify Node.js version meets requirements (18+)# Monitor performance
-
-node --versiongrep "Response time" logs/bot.log
-
-```
-
-# Remove and reinstall dependencies to resolve corruption
-
-rm -rf node_modules package-lock.json### Stopping Your Bot
-
-npm install
-
-```bash
-
-# Verify environment file contains required variables# Find the process
-
-cat .envps aux | grep "node.*index.ts"
-
-
-
+Happy hacking.
 # Run service validation to identify configuration issues# Stop gracefully
 
 ./test-services.shkill <PID>
@@ -854,7 +209,7 @@ cat .envps aux | grep "node.*index.ts"
 
 4. **Ensure mutual follow** relationship exists (bot only replies to followers)```
 
-5. **Check rate limits** have not been exceeded on AI servicesbsky-affirmative-bot/
+5. **Check rate limits** have not been exceeded on AI servicesfrost-bot/
 
 ├── src/
 
@@ -1094,7 +449,7 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) file for 
 
 ### Original Project**Solutions**:
 
-Enhanced fork of [suibari/bsky-affirmative-bot](https://github.com/suibari/bsky-affirmative-bot)```bash
+Enhanced fork of [suibari/frost-bot](https://github.com/suibari/frost-bot)```bash
 
 - Original Author: [suibari](https://github.com/suibari)# Backup current database
 
@@ -1142,9 +497,9 @@ Enhanced fork of [suibari/bsky-affirmative-bot](https://github.com/suibari/bsky-
 
 
 
-- Issues and bug reports: [GitHub Issues](https://github.com/YOUR_USERNAME/bsky-affirmative-bot/issues)**Problem**: Can't connect to custom AT Protocol PDS
+- Issues and bug reports: [GitHub Issues](https://github.com/j4ckxyz/frost-bot/issues)**Problem**: Can't connect to custom AT Protocol PDS
 
-- Feature discussions: [GitHub Discussions](https://github.com/YOUR_USERNAME/bsky-affirmative-bot/discussions)
+- Feature discussions: [GitHub Discussions](https://github.com/j4ckxyz/frost-bot/discussions)
 
 - Original bot on Bluesky: [@suibari-bot.bsky.social](https://bsky.app/profile/suibari-bot.bsky.social)**Solutions**:
 
@@ -1189,7 +544,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ## 🙏 Credits
 
 ### Original Project
-This is an enhanced fork of [**suibari/bsky-affirmative-bot**](https://github.com/suibari/bsky-affirmative-bot)
+This is an enhanced fork of [**suibari/frost-bot**](https://github.com/suibari/frost-bot)
 - **Original Author**: [suibari](https://github.com/suibari)
 - **Original Bot**: [@suibari-bot.bsky.social](https://bsky.app/profile/suibari-bot.bsky.social)
 
@@ -1216,8 +571,8 @@ If you find this project useful, please consider giving it a star! ⭐
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/YOUR_USERNAME/bsky-affirmative-bot/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/YOUR_USERNAME/bsky-affirmative-bot/discussions)
+- **Issues**: [GitHub Issues](https://github.com/j4ckxyz/frost-bot/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/j4ckxyz/frost-bot/discussions)
 - **Original Bot**: [@suibari-bot.bsky.social](https://bsky.app/profile/suibari-bot.bsky.social)
 
 ---

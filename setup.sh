@@ -67,7 +67,7 @@ OPENROUTER_FAST_MODEL=anthropic/claude-3-haiku
 OPENROUTER_CREATIVE_MODEL=openai/gpt-4o
 OPENROUTER_DAILY_LIMIT=5000
 OPENROUTER_FALLBACK_TO_GEMINI=true
-OPENROUTER_REFERER=https://github.com/your-repo/bsky-affirmative-bot
+OPENROUTER_REFERER=https://github.com/j4ckxyz/frost-bot
 OPENROUTER_TITLE=Bluesky Affirmative Bot
 
 # Google Gemini API Key (Fallback + Embeddings)
