@@ -118,8 +118,8 @@ export function uniteDidNsidRkey(did: string, nsid: string, rkey:string) {
 }
 
 /**
- * 言語判定。返すのは言語名（ex. "日本語, English"）
- * langsが1つならその言語を返し、複数または非設定なら英語を返す
+ * Language detection. Returns language name (ex. "English, 日本語")
+ * If langs has exactly one language, return that. Otherwise, default to English
  * @param langs 
  * @returns 
  */

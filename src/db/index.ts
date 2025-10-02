@@ -35,6 +35,18 @@ const desiredSchemas: Record<string, TableSchema> = {
       { name: 'last_status_at', type: 'TIMESTAMP', default: null },
       { name: 'question_root_uri', type: 'TEXT', default: null },
       { name: 'last_answered_at', type: 'TIMESTAMP', default: null },
+      // Enhanced user profiling columns
+      { name: 'preferred_language', type: 'TEXT', default: 'English' },
+      { name: 'personality_traits', type: 'JSON', default: null }, // Store analyzed personality traits
+      { name: 'interests', type: 'JSON', default: null }, // Store detected interests/hobbies
+      { name: 'mood_patterns', type: 'JSON', default: null }, // Store historical mood analysis
+      { name: 'interaction_style', type: 'TEXT', default: null }, // casual/formal/etc
+      { name: 'timezone', type: 'TEXT', default: 'UTC' },
+      { name: 'response_preferences', type: 'JSON', default: null }, // What kind of responses they like
+      { name: 'personal_context', type: 'JSON', default: null }, // Important personal details for context
+      { name: 'relationship_level', type: 'INTEGER', default: 0 }, // 0=new, 1=acquaintance, 2=friend, 3=close friend
+      { name: 'total_interactions', type: 'INTEGER', default: 0 },
+      { name: 'last_personality_update', type: 'TIMESTAMP', default: null },
     ]
   },
   posts: {

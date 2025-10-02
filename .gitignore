@@ -1,7 +1,72 @@
+# Build Output
 dist/
+build/
+
+# Dependencies
 node_modules/
 sqlite3/
-.env*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment Variables (SENSITIVE!)
+.env
+.env.*
+!.env.example
+
+# Logs
 log.*
+logs/
+*.log
+npm-debug.log*
+
+# Database Files
+data/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Generated Images
 output.png
+*.png.tmp
+
+# API Keys & Credentials (SENSITIVE!)
 src/gsheet/key/*.json
+*-key.json
+*-credentials.json
+service-account*.json
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Cache
+.cache/
+.npm/
+.eslintcache
+
+# TypeScript
+*.tsbuildinfo
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+*.backup
+*.bak
+
+# User-generated scripts (created by setup.sh)
+start.sh
+dev.sh
+test.sh
+test-services.sh

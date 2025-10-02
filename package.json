@@ -1,4 +1,51 @@
 {
+  "name": "bsky-affirmative-bot-enhanced",
+  "version": "2.0.0",
+  "description": "Enhanced English-first Bluesky bot with ultra-fast responses, deep user profiling, OpenRouter integration, and custom AT Protocol PDS support",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "NODE_ENV=development tsx src/index.ts",
+    "build": "tsc",
+    "start_cron": "tsx src/cron.ts",
+    "test": "node test-services.js"
+  },
+  "keywords": [
+    "bluesky",
+    "atproto",
+    "bot",
+    "ai",
+    "affirmative",
+    "chatbot",
+    "openrouter",
+    "gemini",
+    "personality-analysis",
+    "social-media"
+  ],
+  "author": {
+    "name": "Enhanced by Community",
+    "url": "https://github.com/YOUR_USERNAME/bsky-affirmative-bot"
+  },
+  "contributors": [
+    {
+      "name": "suibari",
+      "url": "https://github.com/suibari"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_USERNAME/bsky-affirmative-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/bsky-affirmative-bot/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/bsky-affirmative-bot#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "dependencies": {
     "@atproto/api": "^0.15.6",
     "@google/genai": "^0.13.0",
@@ -18,17 +65,6 @@
     "twemoji": "^14.0.2",
     "ws": "^8.18.0"
   },
-  "name": "bsky_affirmative_bot",
-  "type": "module",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "tsx src/index.ts",
-    "start_cron": "tsx src/cron.ts"
-  },
-  "author": "suibari",
-  "license": "MIT",
-  "description": "",
   "devDependencies": {
     "@types/async-retry": "^1.4.9",
     "@types/express": "^5.0.2",
