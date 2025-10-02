@@ -45,125 +45,23 @@ You need these keys to run the bot:
 
 This gives you access to Claude and GPT-4 (better responses!):
 
-1. Go to [openrouter.ai](https://openrouter.ai/)
-2. Click **"Sign In"** (can use Google/GitHub)
-3. Go to [Keys page](https://openrouter.ai/keys)
-4. Click **"Create Key"**
-5. **Copy the key**
-6. Add $5 credits at [openrouter.ai/credits](https://openrouter.ai/credits)
 
-### Step 3: Download and Setup
+## Quick Start Moved
 
+This guide was merged into `README.md` to keep one source of truth.
+
+Run:
 ```bash
-# Download the code
-git clone https://github.com/YOUR_USERNAME/bsky-affirmative-bot.git
-cd bsky-affirmative-bot
-
-# Run the automatic setup
-chmod +x setup.sh
-./setup.sh
+git clone https://github.com/j4ckxyz/frost-bot
+cd frost-bot
+cp .env.example .env
+nano .env   # fill required vars
+npm install && npm run build && npm start
 ```
 
-The script will:
-- ✅ Install everything needed
-- ✅ Create a configuration file
-- ✅ Ask you to add your API keys
+Advanced options: `docs/ADVANCED_CONFIG.md`
 
-### Step 4: Configure Your Bot
-
-The setup script created a file called `.env`. Edit it:
-
-```bash
-nano .env
-# Or use any text editor you like
-```
-
-**Required settings** (fill these in):
-
-```bash
-# Your Bluesky username
-BSKY_IDENTIFIER="your-handle.bsky.social"
-
-# The app password you created in Step 2a
-BSKY_PASSWORD="your-app-password-here"
-
-# The Gemini API key from Step 2b
-GEMINI_API_KEY="your-gemini-key-here"
-```
-
-**Optional but recommended** (better responses):
-
-```bash
-# The OpenRouter API key from Step 2c
-OPENROUTER_API_KEY="your-openrouter-key-here"
-AI_SERVICE_PREFERENCE="openrouter"
-```
-
-Save the file:
-- In nano: Press `Ctrl+X`, then `Y`, then `Enter`
-- In other editors: Just save normally
-
-### Step 5: Start Your Bot!
-
-```bash
-./start.sh
-```
-
-You should see:
-```
-🚀 Starting Enhanced Bluesky Affirmative Bot...
-✅ Connected to Bluesky
-✅ Database initialized
-✅ Listening for posts...
-```
-
-**That's it! Your bot is running!** 🎉
-
----
-
-## 🧪 Testing Your Bot
-
-### Quick Test
-
-1. **From another account**, follow your bot on Bluesky
-2. Wait 1-2 minutes for the bot to follow you back
-3. Post something like "Hello!" or "Having a great day!"
-4. Watch for a reply! ✨
-
-### Try Different Features
-
-Once you're following each other, try posting:
-
-- `"fortune"` - Get your daily fortune
-- `"conversation"` - Start a chat with the bot
-- `"analyze me"` - Get personality analysis
-- `"DJ"` - Get music recommendations
-
----
-
-## 📊 Monitoring Your Bot
-
-### View Live Activity
-
-Open a new terminal and run:
-
-```bash
-# Watch logs in real-time
-tail -f logs/bot.log
-```
-
-You'll see:
-- New followers
-- Posts being processed
-- Responses being sent
-- Any errors (if they happen)
-
-### Check Statistics
-
-```bash
-# How many followers?
-sqlite3 data/bot.db "SELECT COUNT(*) FROM followers;"
-
+File retained only to avoid breaking old links.
 # Who are they?
 sqlite3 data/bot.db "SELECT handle FROM followers LIMIT 10;"
 ```

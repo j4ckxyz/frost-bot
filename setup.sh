@@ -105,12 +105,12 @@ fi
 
 # Check if required env vars are set
 source .env
-if [ -z "$BSKY_IDENTIFIER" ] || [ -z "$BSKY_PASSWORD" ]; then
-    echo -e "${RED}❌ Please set BSKY_IDENTIFIER and BSKY_PASSWORD in .env file${NC}"
+if [ -z "$BSKY_IDENTIFIER" ] || { [ -z "$BSKY_APP_PASSWORD" ] && [ -z "$BSKY_PASSWORD" ]; }; then
+    echo -e "${RED}❌ Please set BSKY_IDENTIFIER and BSKY_APP_PASSWORD in .env file${NC}"
     exit 1
 fi
 
-if [ "$BSKY_IDENTIFIER" = "your.bot.handle" ]; then
+if [ "$BSKY_IDENTIFIER" = "your.bot.handle" ] || [ "$BSKY_IDENTIFIER" = "your-handle.bsky.social" ]; then
     echo -e "${RED}❌ Please update .env file with your actual credentials${NC}"
     exit 1
 fi

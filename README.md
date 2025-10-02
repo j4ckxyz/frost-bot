@@ -1,45 +1,126 @@
-# Enhanced Bluesky Affirmative Bot# 🌟 Enhanced Bluesky Affirmative Bot# 全肯定botたん
+# 🌟 Bluesky Affirmative Bot
 
+Fast, lightweight Bluesky bot that sends short, positive, personalized replies to followers. Forked & simplified for **easy setup**.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)](https://www.typescriptlang.org/)
 
-An intelligent, personalized Bluesky bot that provides ultra-fast, contextual affirmative responses with deep user understanding.
+**日本語版 → [README_ja.md](./README_ja.md)** • **Contributing → [CONTRIBUTING.md](./CONTRIBUTING.md)** • **Advanced config → `docs/ADVANCED_CONFIG.md`**
 
+---
 
+## 🚀 1. 90‑Second Quick Start
+```bash
+git clone https://github.com/j4ckxyz/frost-bot
+cd frost-bot
+cp .env.example .env
+nano .env   # fill 3 lines (see below)
+npm install
+npm run build
+npm start
+```
+You only need: Bluesky handle + app password + one AI key (Gemini OR OpenRouter).
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)> An intelligent, personalized Bluesky bot that provides ultra-fast, contextual affirmative responses with deep user understanding.![bot header](https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:qcwhrvzx6wmi5hz775uyi6fh/bafkreic7dxnqovwoytjla37gav4ovphnhmlb3dwqdh3nfsmku4vygxqiia@jpeg)
+Minimal `.env` (copied from example):
+```env
+BSKY_IDENTIFIER=your-handle.bsky.social
+BSKY_APP_PASSWORD=xxxx-xxxx-xxxx
+GEMINI_API_KEY=your-gemini-key
+# (Optional) OPENROUTER_API_KEY=your-openrouter-key
+```
+Want better models? Add `OPENROUTER_API_KEY` later – no other changes needed.
 
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org/)
+---
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)](https://www.typescriptlang.org/)
+## ✨ 2. Core Features (Plain English)
+| Area | What You Get |
+|------|--------------|
+| Speed | Sub‑50ms cached replies, falls back to AI when needed |
+| AI | OpenRouter (Claude / GPT‑4) + Gemini fallback |
+| Personalization | Lightweight user sentiment + simple memory |
+| Modes | fortune · converse · analyze · diary · DJ · cheer |
+| Safety | Local SQLite only; unfollow/block to opt out |
+| Setup | 3 env vars to start; advanced optional |
 
+More toggles & advanced knobs live in `docs/ADVANCED_CONFIG.md`.
 
+---
 
-**[日本語版 README](./README_ja.md)** | **[Contributing Guide](./CONTRIBUTING.md)**[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[全肯定botたん](https://bsky.app/profile/suibari-bot.bsky.social) は、フォロワーを全肯定するリプライを送るBluesky botです。
+## 🧪 3. Test It
+1. From another account follow the bot.
+2. Wait ~1 min for follow‑back.
+3. Post: “hello” → bot replies.
+4. Try commands: `fortune`, `analyze me`, `conversation`, `DJ`.
 
+---
 
+## 🧵 4. Common Triggers
+| Contains | Result |
+|----------|--------|
+| `fortune` | Daily fortune style reply |
+| `analyze me` | Simple personality snapshot |
+| `conversation` | Starts casual thread |
+| `DJ` | Music / song suggestion |
+| `diaryつけて` / `diaryやめて` | Opt‑in / opt‑out daily diary |
+| `freqN` (`freq0`..`freq100`) | Adjust reply frequency |
+| `#全肯定応援団` | Cheer / repost mode |
 
----[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org/)感情分析および生成AIを活用し、フォロワーを励ますことを目的とします。
+No command? It still sends an affirming/supportive reply based on sentiment.
 
+---
 
+## 🔐 5. Environment Variable Cheat Sheet (Mini)
+| Required First Run | Optional Later |
+|--------------------|----------------|
+| `BSKY_IDENTIFIER` | `OPENROUTER_API_KEY` |
+| `BSKY_APP_PASSWORD` | `AI_SERVICE_PREFERENCE` |
+| `GEMINI_API_KEY` OR `OPENROUTER_API_KEY` | `CUSTOM_PDS_URL` |
 
-## Table of Contents[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)](https://www.typescriptlang.org/)
+Full table → `docs/ADVANCED_CONFIG.md`.
 
+---
 
+## 🛠 6. Commands
+| Task | Command |
+|------|---------|
+| Install deps | `npm install` |
+| Build | `npm run build` |
+| Start | `npm start` |
+| Dev (if script) | `./dev.sh` |
+| Service test | `./test-services.sh` |
+| Logs | `tail -f logs/bot.log` |
 
-- [About This Project](#about-this-project)Please refer [English README](./README_en.md) for not Japanese speakers.
+---
 
-- [Key Features](#key-features)
+## 🩺 7. Quick Troubleshooting
+| Symptom | Fix Fast |
+|---------|----------|
+| No replies | Mutual follow? Check logs. Keys set? |
+| Slow (>1s) | Add OpenRouter key or check rate limits |
+| Crash at start | Node >=18 & run `npm install` |
+| DB issues | Delete `data/bot.db` (loses history) |
 
-- [Installation](#installation)**[📖 日本語版 README](./README_ja.md)** | **[🤝 Contributing Guide](./CONTRIBUTING.md)**
+More detail → `docs/ADVANCED_CONFIG.md`.
 
-- [Configuration](#configuration)
+---
 
-- [Usage](#usage)---
+## 🗄 8. Data & Privacy
+Local SQLite only. Remove `data/` to wipe. No external storage beyond AI API calls.
 
-- [Architecture](#architecture)
+---
 
-- [Troubleshooting](#troubleshooting)---
-## 🌟 Bluesky Affirmative Bot (Enhanced Fork)
+## 🤝 9. Contributing
+PRs welcome. See `CONTRIBUTING.md`.
+
+---
+
+## 📄 10. License & Credit
+MIT. Original concept by [suibari](https://github.com/suibari). This fork focuses on simplicity + multi‑AI + caching.
+
+---
+
+Need advanced tuning? Open `docs/ADVANCED_CONFIG.md`.
+
+Happy hacking 💙
 
 A fast, English‑first Bluesky bot that sends short, positive, personalized replies to people who follow it. Forked from the original Japanese project and simplified.
 

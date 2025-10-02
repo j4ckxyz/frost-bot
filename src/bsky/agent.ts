@@ -9,7 +9,8 @@ console.log(`[INFO] Initializing agent with PDS: ${pdsUrl}`);
 const agent = new AtpAgent({ service: pdsUrl });
 
 const identifier = process.env.BSKY_IDENTIFIER!;
-const password = process.env.BSKY_APP_PASSWORD!;
+// Backward compatibility: support legacy BSKY_PASSWORD as fallback
+const password = (process.env.BSKY_APP_PASSWORD || process.env.BSKY_PASSWORD)!;
 let accessJwt: string | null = null;
 let refreshJwt: string | null = null;
 
